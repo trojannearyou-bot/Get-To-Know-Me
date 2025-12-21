@@ -57,7 +57,6 @@ a:hover {
   text-underline-offset: 1rem;
 }
 
-
 .logo {
   font-size: 2rem;
 }
@@ -210,7 +209,7 @@ section {
 
 .icon {
   cursor: pointer;
-  height: 2rem;
+  height: 2.5rem; /* ~40px to match live site */
 }
 
 /* BUTTONS */
@@ -222,12 +221,19 @@ section {
 }
 
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 600;
   transition: all 300ms ease;
   padding: 1rem;
   width: 8rem;
   border-radius: 2rem;
-}
+  font-family: inherit;
+  line-height: 1;
+  text-decoration: none;
+  color: inherit;
+} 
 
 .btn-color-1,
 .btn-color-2 {
@@ -259,26 +265,6 @@ section {
 
 .btn-container {
   gap: 1rem;
-}
-
-/* Resume circular button used in profile */
-.resume-btn {
-  /* Use base .btn styling for oval shape; keep this minimal */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: inherit;
-}
-
-.resume-btn img {
-  display: none; /* no icon used */
-}
-
-.resume-btn:hover {
-  background: rgb(53,53,53);
-  color: white;
-  border-color: rgb(53,53,53);
 }
 
 /* ABOUT SECTION */
@@ -338,14 +324,27 @@ section {
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
   text-align: center;
-}
+  box-sizing: border-box;
+} 
 
 /* Keep About section Experience & Education boxes same size */
 #about .details-container {
-  flex: 0 1 22rem; /* same base width */
-  min-width: 18rem;
-  max-width: 26rem;
+  flex: 0 1 26rem; /* same base width used on live site */
+  min-width: 20rem;
+  max-width: 30rem;
 }
+
+#about .details-container h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+#about .details-container p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+} 
 
 .section-container {
   gap: 4rem;
@@ -447,6 +446,28 @@ article .icon {
 .resume-icon {
   height: inherit;
   width: inherit;
+}
+
+/* Email copy feedback */
+#contact a#email-link {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.copy-feedback {
+  margin-left: 0.75rem;
+  font-size: 0.95rem;
+  color: rgb(4, 120, 87); /* greenish */
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  display: inline-block;
+}
+
+.copy-feedback.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Projects placeholder */
